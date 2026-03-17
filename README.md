@@ -1,31 +1,29 @@
-# Accelerometer, RTC and DAC Project - STM32F407
+# Anti-Theft System with Motion Detection - STM32F407
 
 ## General Context
-This repository contains an embedded lab project built around the STM32F407 board.
-The goal is to validate a complete microcontroller processing chain:
-- sensor data acquisition
-- application-level processing
-- local output (display/serial)
-- analog output generation
-- time tagging with RTC
+This repository contains an embedded anti-theft system built around the STM32F407 board.
+The system focuses on low-power monitoring and alerting, with three core capabilities:
+- accelerometer-based motion detection
+- PWM buzzer audio alerts when suspicious movement is detected
+- optimized UART usage to reduce power consumption during communication/debug phases
 
-It is meant as a practical integration exercise where multiple peripherals work together in one simple real-time application.
+The project is designed as a practical integration exercise that combines sensing, decision logic, and power-aware signaling in one application.
 
 ## Learning Goals
 The main objective is to practice:
-- CubeMX/CubeIDE project configuration
-- HAL-based peripheral usage across multiple buses (I2C, SPI, USART)
-- sensor reading and data usage
-- RTC-based time synchronization
-- DAC-based analog output generation
+- CubeMX/CubeIDE configuration for an embedded security use case
+- reliable motion detection from accelerometer data
+- PWM generation for buzzer-based alert tones
+- UART optimization strategies for lower energy use
+- robust system behavior under real-time constraints
 
 ## Functional Scope
-The application is centered around three main functional blocks:
-- Accelerometer: motion/orientation acquisition
-- RTC: date/time management
-- DAC: analog signal generation tied to application logic
+The application is centered around three functional blocks:
+- Motion sensing: detect movement patterns using the accelerometer
+- Alerting: trigger audible buzzer alarms through PWM control
+- Low-power communication: keep UART available while minimizing energy overhead
 
-Around these blocks, communication interfaces (serial, sensor buses, display) are used for monitoring and debugging.
+Supporting interfaces are used for configuration, monitoring, and debugging.
 
 ## High-Level Structure
 The repository follows the standard STM32CubeIDE layout:
